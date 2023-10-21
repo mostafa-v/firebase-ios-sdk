@@ -13,3 +13,24 @@
 // limitations under the License.
 
 // Swift Package Manager needs at least one source file.
+
+// Is this reproducible if FakeQuery was not C++?
+// - Yes, doesn't matter if c++ or objc
+
+// TODO: Is this reproducible in a minimal example?
+
+// THIS IS NEEDED
+@import FirebaseFirestoreInternal;
+// THIS IS NEEDED
+#import "FIRQuery.h"
+
+// THIS ALSO WORKS
+//#import <FirebaseFirestoreInternal/FIRQuery.h>
+
+// doesnt work
+//#import <FirebaseFirestore/FIRQuery.h>
+
+void foo(void) {
+    // THIS IS NEEDED
+    Class klass = [FIRQuery class];
+}

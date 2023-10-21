@@ -13,3 +13,5 @@
 // limitations under the License.
 
 #import <FirebaseFirestoreInternal/FIRQuery.h>
+
+void foo(void);
