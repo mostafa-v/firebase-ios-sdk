@@ -43,6 +43,7 @@ source_repo=()
 IFS=','
 read -a specrepo <<< "${CUSTOM_SPEC_REPOS}"
 
+OUTPUT_DIR=$(cd -P "$OUTPUT_DIR" && pwd)
 cd ReleaseTooling
 swift run zip-builder --keep-build-artifacts --update-pod-repo \
     ${build_head_option} ${build_head_value} \
