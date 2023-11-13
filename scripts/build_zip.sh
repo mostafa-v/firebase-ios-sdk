@@ -37,13 +37,14 @@ fi
 # The first and only argument to this script should be the name of the
 # output directory.
 OUTPUT_DIR="$REPO/$1"
+OUTPUT_DIR=$(readlink -f $OUTPUT_DIR)
 CUSTOM_SPEC_REPOS="$2"
 
 source_repo=()
 IFS=','
 read -a specrepo <<< "${CUSTOM_SPEC_REPOS}"
 
-OUTPUT_DIR=$(cd -P "$OUTPUT_DIR" && pwd)
+
 cd ReleaseTooling
 swift run zip-builder --keep-build-artifacts --update-pod-repo \
     ${build_head_option} ${build_head_value} \
